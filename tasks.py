@@ -1,7 +1,7 @@
 from celery import Celery
 from collections import Counter
 from celery.exceptions import SoftTimeLimitExceeded
-app = Celery('2021MCS2157', broker='pyamqp://guest@localhost//',backend='redis://localhost:6579', worker_prefetch_multiplier=1)
+app = Celery('2021MCS3169', broker='pyamqp://guest@localhost//',backend='redis://localhost:6579', worker_prefetch_multiplier=1)
 
 @app.task(acks_late=True, soft_time_limit=60, default_retry_delay=0, time_limit=60, autoretry_for=(SoftTimeLimitExceeded,))
 def shar(namfil1):
